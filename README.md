@@ -7,7 +7,7 @@ Ruby gem wrapper for the blazingly fast coordinate to timezone lookup functional
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'tz_lookup_wrapper'
+gem 'tz_lookup_wrapper', :git => 'https://github.com/rajiteh/tz_lookup_wrapper.git', :branch => 'master', :submodules => true
 ```
 
 And then execute:
