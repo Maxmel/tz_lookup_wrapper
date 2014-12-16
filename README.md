@@ -24,6 +24,11 @@ Or install it yourself as:
 require('tz_lookup_wrapper')
 TzLookupWrapper.lookup(43.7, -79.4) # => "America/Toronto"
 ```
+## Todo
+
+1. Rewrite the actual tz-lookup library in pure ruby. 
+2. ????
+3. PROFIT!
 
 ## Contributing
 
