@@ -1,19 +1,12 @@
 require "tz_lookup_wrapper/version"
 require "tz_lookup_wrapper/active_support"
+require "tz_lookup_wrapper/detect_node"
+require 'tz_lookup_wrapper/exception'
 
 module TzLookupWrapper
-  class TzLookupWrapperException < Exception;end
 
   TZ_LOOKUP_PATH="#{File.dirname(__FILE__)}/../vendor/tz-lookup/index.js"
-  NODE_BIN = begin
-    if (`nodejs --version` rescue false)
-      'nodejs'
-    elsif (`node --version` rescue false)
-      'node'
-    else
-      raise TzLookupWrapperException.new("Could not find nodejs runtime.");
-    end
-  end
+
 
   # Lookup a timezone
   # 
@@ -37,7 +30,7 @@ module TzLookupWrapper
       }
     HEREDOC
     result = nil
-    IO.popen(NODE_BIN, 'r+') do |io|
+    IO.popen(node_bin, 'r+') do |io|
       io.puts(script)
       io.close_write
       result = io.gets
@@ -45,7 +38,13 @@ module TzLookupWrapper
     if $?.success?
       result
     else
-      raise TzLookupWrapperException.new result || "Empty output"
+      raise WrapperException.new result || "Empty output"
     end
+  end
+
+  private
+
+  def self.node_bin
+    @node_bin ||= TzLookupWrapper::DetectNode.detect
   end
 end
