@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = TzLookupWrapper::VERSION
   spec.authors       = ["Rajitha Perera"]
   spec.email         = ["rajiteh@gmail.com"]
-  spec.summary       = %q{Wrapper for tz-lookup npm package.}
-  spec.homepage      = ""
+  spec.summary       = %q{Ruby wrapper for tz-lookup npm package.}
+  spec.homepage      = "https://github.com/rajiteh/tz_lookup_wrapper"
   spec.license       = "CC0"
 
   spec.files         = `git ls-files -z`.split("\x0")

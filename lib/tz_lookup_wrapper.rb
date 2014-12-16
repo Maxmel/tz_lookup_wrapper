@@ -15,6 +15,16 @@ module TzLookupWrapper
     end
   end
 
+  # Lookup a timezone
+  # 
+  # Example:
+  #   >> TzLookupWrapper.lookup(43.7, -79.4)
+  #   => "America/Toronto"
+  #
+  # Arguments:
+  #   latitude: (Float)
+  #   longitude: (Float)
+ 
   def self.lookup(lat_r,lng_r)
     lat =   Float lat_r
     lng =   Float lng_r
