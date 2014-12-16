@@ -1,0 +1,3 @@
+[submodule "vendor/tz-lookup"]
+	path = vendor/tz-lookup
+	url = https://github.com/darkskyapp/tz-lookup.git
