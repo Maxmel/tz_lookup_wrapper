@@ -1,6 +1,6 @@
 # TzLookupWrapper
 
-TODO: Write a gem description
+Ruby gem wrapper for the blazingly fast coordinate to timezone lookup functionality offered by npm package tz-lookup found here : https://github.com/darkskyapp/tz-lookup
 
 ## Installation
 
@@ -20,11 +20,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require('tz_lookup_wrapper')
+TzLookupWrapper.lookup(43.7, -79.4) # => "America/Toronto"
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/tz_lookup_wrapper/fork )
+1. Fork it ( https://github.com/rajiteh/tz_lookup_wrapper/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
