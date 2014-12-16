@@ -1,4 +1,5 @@
 require "tz_lookup_wrapper/version"
+require "tz_lookup_wrapper/active_support"
 
 module TzLookupWrapper
   class TzLookupWrapperException < Exception;end
@@ -28,5 +29,4 @@ HEREDOC
       raise TzLookupWrapperException.new result || "Empty output"
     end
   end
-
 end
