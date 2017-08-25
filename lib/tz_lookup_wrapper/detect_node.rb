@@ -1,17 +1,17 @@
 module TzLookupWrapper
   class DetectNode
-    MIN_VER = [0, 10, 0]
+    MIN_VER = "0.10.0"
 
     def self.detect
+      valid = false
       node_bins.each do |node|
-        detected_version = (`#{node} --version`)[1..-1].split(".") rescue "v0.0.0"
-        if detected_version[0].to_i >= MIN_VER[0] and
-            detected_version[1].to_i >= MIN_VER[1] and
-            detected_version[2].to_i >= MIN_VER[2]
+        detected_version = (`#{node} --version`)[1..-1] rescue "0.0.0"
+        if Gem::Version.new(detected_version) >= Gem::Version.new(MIN_VER)
+              valid = true
               return node
         end
       end
-      raise TzLookupWrapper::NodeOutdatedException.new MIN_VER
+      raise TzLookupWrapper::NodeOutdatedException.new MIN_VER unless valid
     end
 
 

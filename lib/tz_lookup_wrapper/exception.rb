@@ -4,7 +4,7 @@ module TzLookupWrapper
 
   class NodeOutdatedException < BaseTzLookupWrapperException
     def initialize(min_ver)
-      super "Cannot find a supported NodeJS installation. Minimum required version (v#{min_ver.join(".") || ""})"
+      super "Cannot find a supported NodeJS installation. Minimum required version (v#{min_ver || ""})"
     end
   end
 
